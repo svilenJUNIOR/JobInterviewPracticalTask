@@ -18,19 +18,6 @@ namespace GtRacingNews.Controllers
 
         public async Task<IActionResult> Seed()
         {
-            MongoDbContext context = new MongoDbContext();
-            context.delete();
-            context.create();
-
-
-            await this.engine.mongoSeeder.SeedChampionship();
-            await this.engine.mongoSeeder.SeedTeams();
-            await this.engine.mongoSeeder.SeedDriver();
-            await this.engine.mongoSeeder.SeedNews();
-            await this.engine.mongoSeeder.SeedComments();
-            await this.engine.mongoSeeder.SeedRaces();
-            await this.engine.mongoSeeder.SeedProfiles();
-
             //await this.engine.SqlSeeder.SeedUser();
             //await this.engine.SqlSeeder.SeedRoles();
             //await this.engine.SqlSeeder.SeedUserRoles();
@@ -49,8 +36,6 @@ namespace GtRacingNews.Controllers
         public async Task<IActionResult> Index()
         {
             if (this.User.IsInRole("Admin")) return Redirect("Admin/Home");
-
-            if (this.User.Identity.IsAuthenticated == false) return Redirect("Guest/Home");
 
             return View();
         }
