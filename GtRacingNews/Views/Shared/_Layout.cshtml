@@ -62,6 +62,12 @@
                 Close &times;
             </button>
 
+            @if (!this.User.IsInRole("Moderator") && !this.User.IsInRole("Admin") && !this.User.Identity.IsAuthenticated)
+            {
+                <a href="/User/Register" class="w3-bar-item w3-button nav-link text-light">Register</a>
+                <a href="/User/LogIn" class="w3-bar-item w3-button nav-link text-light">Log In</a>
+            }
+
             @if (!this.User.IsInRole("Moderator") && !this.User.IsInRole("Admin") && this.User.Identity.IsAuthenticated)
             {
                 <a href="/User/Profile" class="w3-bar-item w3-button nav-link text-light">Become Premium Member</a>
