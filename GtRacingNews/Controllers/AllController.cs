@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GtRacingNews.Controllers
 {
-    [Authorize]
     public class AllController : Controller
     {
         private readonly IEngine engine;

@@ -22,12 +22,6 @@ builder.Services.AddControllersWithViews()
         
     });
 
-////////////////// MONGO MONGO MONGO //////////////////
-builder.Services.Configure<MongoSetUp>(
-    builder.Configuration.GetSection("MongoSettings"));
-////////////////// MONGO MONGO MONGO //////////////////
-
-
 builder.Services.AddScoped<IHasher, Hasher>();
 builder.Services.AddScoped<IEngine, Engine>();
 builder.Services.AddScoped<IBindService, BindService>();
