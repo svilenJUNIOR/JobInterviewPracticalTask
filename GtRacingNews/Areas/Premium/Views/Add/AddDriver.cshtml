@@ -1,0 +1,68 @@
+﻿@model GtRacingNews.ViewModels.Driver.AddNewDriverFormModel
+
+<h1 style="text-align:center; color:white">Add new racing driver</h1>
+<div class="box">
+    <form method="post">
+        <table style="height: 300px">
+            <tr>
+                <td>
+                    <label for="name">Name</label>
+                </td>
+                <td width="300px">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Must be less than 30 symbols"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="age">Age</label>
+                </td>
+                <td>
+                    <input type="number" class="form-control" id="age" name="age" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="cup">Cup</label>
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="cup" name="cup" placeholder="Must be less than 10 symbols"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="imageUrl">ImageUrl</label>
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="imageUrl" name="imageUrl" />
+                </td>
+            </tr>
+
+             <tr>
+                <td>
+                    <label for="teamName">TeamName</label>
+                </td>
+                <td>
+                    <select name="teamName" id="teamName">
+                        @foreach(var team in @Model.Teams)
+                        {
+                        <option value="@team.Name">@team.Name</option>
+                        }
+                     </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>Submit</p>
+                </td>
+                <td>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<link rel="stylesheet" href="~/css/DriverCss/Add.css"></link>

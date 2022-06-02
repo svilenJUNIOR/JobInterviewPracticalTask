@@ -1,0 +1,131 @@
+﻿@using GtRacingNews.ViewModels.Delete
+@model DeleteFormModel
+
+<div class="box">
+
+    <table>
+        <th colspan="2">DELETE TEAMS</th>
+        @foreach (var team in Model.Teams)
+        {
+            <tr>
+                <td>
+                    @team.Key
+                </td>
+                <td>
+                    <a href="Delete?id=@team.Value&collection=@Model.CollectionNames.TeamCollection" class="btn btn-primary">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+
+    <table>
+        <th colspan="2">DELETE CHAMPIONSHIPS</th>
+        @foreach (var championship in Model.Championships)
+        {
+            <tr>
+                <td>
+                    @championship.Key
+                </td>
+                <td>
+                    <a href="Delete?id=@championship.Value&collection=@Model.CollectionNames.ChampionshipCollection" class="btn btn-primary">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+
+
+    <table>
+        <th colspan="2">DELETE DRIVERS</th>
+        @foreach (var driver in Model.Drivers)
+        {
+            <tr>
+                <td>
+                    @driver.Key
+                </td>
+                <td>
+                    <a href="Delete?id=@driver.Value&collection=@Model.CollectionNames.DriverCollection" class="btn btn-primary">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+
+
+    <table>
+        <th colspan="2">DELETE NEWS</th>
+        @foreach (var news in Model.News)
+        {
+            <tr>
+                <td>
+                    @news.Key
+                </td>
+                <td>
+                    <a href="Delete?id=@news.Value&collection=@Model.CollectionNames.NewsCollection" class="btn btn-primary">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+
+
+    <table>
+        <th colspan="2">DELETE RACES</th>
+        @foreach (var race in Model.Races)
+        {
+            <tr>
+                <td>
+                    @race.Key
+                </td>
+                <td>
+                    <a href="Delete?id=@race.Value&collection=@Model.CollectionNames.RaceCollection" class="btn btn-primary">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+
+    <table>
+        <th colspan="2">DELETE USERS</th>
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>
+                    @user.Key
+                </td>
+                <td>
+                    <a href="DeleteUserOrRole?id=@user.Value&collection=@Model.CollectionNames.UserCollection" class="btn btn-primary">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+
+    <table>
+        <th colspan="2">DELETE ROLES</th>
+        @foreach (var role in Model.Roles)
+        {
+            <tr>
+                <td>
+                    @role.Key
+                </td>
+                <td>
+                    <a href="DeleteUserOrRole?id=@role.Value&collection=@Model.CollectionNames.RoleCollection" class="btn btn-primary">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+
+</div>
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+        color: black;
+        width: 900px;
+        background-color: white;
+    }
+
+    .box {
+        margin-left: 100px;
+    }
+
+    body {
+        background-color: lightgray;
+    }
+</style>

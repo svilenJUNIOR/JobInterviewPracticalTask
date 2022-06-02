@@ -1,0 +1,35 @@
+﻿@model GtRacingNews.ViewModels.News.ReadNewsViewModel
+
+<div class="box">
+    <p>@Model.Description</p>
+</div>
+
+@if (this.User.Identity.IsAuthenticated)
+{
+    <section id="CommentSection">
+        <form method="post" asp-controller="Comment" asp-action="Add">
+            <label for="description">Submit your comment</label>
+            <input type="text" class="form-control" id="description" name="description" placeholder="Must be less than 100 symbols" />
+            <button type="submit" class="btn btn-primary" name="newsId" value="@Model.NewsId">Submit</button>
+        </form>
+    </section>
+}
+
+
+<section id="CommentList">
+    <ul>
+        @{
+            foreach (var comment in @Model.Comments)
+            {
+                <li>@comment.UserName - @comment.Description</li>
+
+                @if (this.User.IsInRole("Admin"))
+                {
+                    <a href="/Admin/Delete/DeleteComment?id=@comment.Id&newsId=@comment.NewsId" class="btn btn-primary">Delete</a>
+                }
+            }
+        }
+    </ul>
+</section>
+
+<link rel="stylesheet" href="~/css/NewsCss/Details.css"></link>

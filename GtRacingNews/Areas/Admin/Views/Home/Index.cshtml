@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Home Page admin";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Administration page</title>
+</head>
+<body>
+
+    <p>Is the role correct: @this.User.IsInRole("Admin")</p>
+
+    <div id="Add menu">
+        <ul>
+            <li><a class="active" href="/Admin/Home">Home</a></li>
+            <li><a href="/User/Logout">Logout</a></li>
+            <li><a href="/Premium/Add/AddNews">Add news</a></li>
+            <li><a href="/Premium/Add/AddTeam">Add new team</a></li>
+            <li><a href="/Premium/Add/AddChampionship">Add new championship</a></li>
+            <li><a href="/Premium/Add/AddDriver">Add new driver</a></li>
+            <li><a href="/Premium/Add/AddRace">Add new race</a></li>
+            <li><a href="/Premium/Add/AddRole">Add new role</a></li>
+            <li><a href="/Admin/Delete/DeleteView">Delete</a></li>
+            <li><a href="/Admin/User/AddToRole">Add role to user</a></li>
+            <li><a href="/All/AllNews">Public part</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>
+
+<link rel="stylesheet" href="~/css/AdminCss/AdminHome.css"></link>
