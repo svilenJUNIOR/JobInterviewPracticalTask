@@ -1,5 +1,10 @@
-﻿.box {
-    margin-left: 1400px;
+﻿.first {
+    width: 50%;
+    float: left;
+}
+.second {
+    width: 50%;
+    float: right;
 }
 
 body {
