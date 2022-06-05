@@ -38,9 +38,11 @@ namespace GtRacingNews.Services.Service
             if (isModerator) news.UserId = userId;
             await sqlRepository.AddAsync<News>((News)news);
         }
-        public async Task AddNewRace(string name, string date, bool isModerator, string userId)
+        public async Task AddNewRace(string name, string date, string championshipName,bool isModerator, string userId)
         {
-            var race = new Race(name, date);
+            var championship = this.sqlRepository.FindChampionshipByName(championshipName);
+
+            var race = new Race(name, date, championship.Id);
             if (isModerator) race.UserId = userId;
             await sqlRepository.AddAsync<Race>((Race)race);
         }

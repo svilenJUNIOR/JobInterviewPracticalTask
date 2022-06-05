@@ -7,7 +7,7 @@
         Task AddNewComment(string Description, string newsId, string UserName);
         Task AddNewDriver(string name, string cup, string imageUrl, int age, string teamName, bool isModerator, string userId);
         Task AddNews(string heading, string description, string pictureUrl, bool isModerator, string userId);
-        Task AddNewRace(string name, string date, bool isModerator, string userId);
+        Task AddNewRace(string name, string date, string championshipId,bool isModerator, string userId);
         Task AddNewProfile(string address, int age, string userId, string profileType, string profilePicture);
     }
 }

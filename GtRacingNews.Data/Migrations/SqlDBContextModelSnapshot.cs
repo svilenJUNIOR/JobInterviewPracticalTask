@@ -22,7 +22,7 @@ namespace GtRacingNews.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("GtRacingNews.Data.DataModels.Championship", b =>
+            modelBuilder.Entity("GtRacingNews.Data.DataModels.SqlModels.Championship", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -44,7 +44,7 @@ namespace GtRacingNews.Data.Migrations
                     b.ToTable("Championships");
                 });
 
-            modelBuilder.Entity("GtRacingNews.Data.DataModels.Comment", b =>
+            modelBuilder.Entity("GtRacingNews.Data.DataModels.SqlModels.Comment", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -68,7 +68,7 @@ namespace GtRacingNews.Data.Migrations
                     b.ToTable("Comments");
                 });
 
-            modelBuilder.Entity("GtRacingNews.Data.DataModels.Driver", b =>
+            modelBuilder.Entity("GtRacingNews.Data.DataModels.SqlModels.Driver", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -103,7 +103,7 @@ namespace GtRacingNews.Data.Migrations
                     b.ToTable("Drivers");
                 });
 
-            modelBuilder.Entity("GtRacingNews.Data.DataModels.News", b =>
+            modelBuilder.Entity("GtRacingNews.Data.DataModels.SqlModels.News", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -130,7 +130,7 @@ namespace GtRacingNews.Data.Migrations
                     b.ToTable("News");
                 });
 
-            modelBuilder.Entity("GtRacingNews.Data.DataModels.Profile", b =>
+            modelBuilder.Entity("GtRacingNews.Data.DataModels.SqlModels.Profile", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -159,10 +159,13 @@ namespace GtRacingNews.Data.Migrations
                     b.ToTable("Profiles");
                 });
 
-            modelBuilder.Entity("GtRacingNews.Data.DataModels.Race", b =>
+            modelBuilder.Entity("GtRacingNews.Data.DataModels.SqlModels.Race", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ChampionshipId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Date")
                         .IsRequired()
@@ -181,7 +184,7 @@ namespace GtRacingNews.Data.Migrations
                     b.ToTable("Races");
                 });
 
-            modelBuilder.Entity("GtRacingNews.Data.DataModels.Team", b =>
+            modelBuilder.Entity("GtRacingNews.Data.DataModels.SqlModels.Team", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -415,25 +418,25 @@ namespace GtRacingNews.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("GtRacingNews.Data.DataModels.Comment", b =>
+            modelBuilder.Entity("GtRacingNews.Data.DataModels.SqlModels.Comment", b =>
                 {
-                    b.HasOne("GtRacingNews.Data.DataModels.News", null)
+                    b.HasOne("GtRacingNews.Data.DataModels.SqlModels.News", null)
                         .WithMany("Comments")
                         .HasForeignKey("NewsId")
                         .OnDelete(DeleteBehavior.SetNull);
                 });
 
-            modelBuilder.Entity("GtRacingNews.Data.DataModels.Driver", b =>
+            modelBuilder.Entity("GtRacingNews.Data.DataModels.SqlModels.Driver", b =>
                 {
-                    b.HasOne("GtRacingNews.Data.DataModels.Team", null)
+                    b.HasOne("GtRacingNews.Data.DataModels.SqlModels.Team", null)
                         .WithMany("Drivers")
                         .HasForeignKey("TeamId")
                         .OnDelete(DeleteBehavior.SetNull);
                 });
 
-            modelBuilder.Entity("GtRacingNews.Data.DataModels.Team", b =>
+            modelBuilder.Entity("GtRacingNews.Data.DataModels.SqlModels.Team", b =>
                 {
-                    b.HasOne("GtRacingNews.Data.DataModels.Championship", null)
+                    b.HasOne("GtRacingNews.Data.DataModels.SqlModels.Championship", null)
                         .WithMany("Teams")
                         .HasForeignKey("ChampionshipId")
                         .OnDelete(DeleteBehavior.SetNull);
@@ -490,17 +493,17 @@ namespace GtRacingNews.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("GtRacingNews.Data.DataModels.Championship", b =>
+            modelBuilder.Entity("GtRacingNews.Data.DataModels.SqlModels.Championship", b =>
                 {
                     b.Navigation("Teams");
                 });
 
-            modelBuilder.Entity("GtRacingNews.Data.DataModels.News", b =>
+            modelBuilder.Entity("GtRacingNews.Data.DataModels.SqlModels.News", b =>
                 {
                     b.Navigation("Comments");
                 });
 
-            modelBuilder.Entity("GtRacingNews.Data.DataModels.Team", b =>
+            modelBuilder.Entity("GtRacingNews.Data.DataModels.SqlModels.Team", b =>
                 {
                     b.Navigation("Drivers");
                 });

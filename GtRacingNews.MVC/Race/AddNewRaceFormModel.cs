@@ -10,5 +10,7 @@ namespace GtRacingNews.ViewModels.Race
 
         [Required]
         public string Date { get; set; }
+        public string ChampionshipName { get; set; }
+        public ICollection<Data.DataModels.SqlModels.Championship> Championships { get; set; } = new List<Data.DataModels.SqlModels.Championship>();
     }
 }

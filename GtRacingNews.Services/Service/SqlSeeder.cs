@@ -30,7 +30,7 @@ namespace GtRacingNews.Services.Service
 
         public async Task SeedChampionship()
         {
-            var jsonString = File.ReadAllText(@"C:\Users\svile\OneDrive\Desktop\programing\Csharp\PROJECTS\GtRacingNews-SoftUniWebProject\GtRacingNews.Common\SeederData\Championship.json");
+            var jsonString = File.ReadAllText(@"C:\Users\svile\OneDrive\Desktop\SoftUni\JobInterviewPracticalTask\GtRacingNews.Common\SeederData\Championship.json");
 
             var toAdd = JsonConvert.DeserializeObject<List<Championship>>(jsonString);
 
@@ -57,7 +57,7 @@ namespace GtRacingNews.Services.Service
 
         public async Task SeedRaces()
         {
-            var jsonString = File.ReadAllText(@"C:\Users\svile\OneDrive\Desktop\programing\Csharp\PROJECTS\GtRacingNews-SoftUniWebProject\GtRacingNews.Common\SeederData\Race.json");
+            var jsonString = File.ReadAllText(@"C:\Users\svile\OneDrive\Desktop\SoftUni\JobInterviewPracticalTask\GtRacingNews.Common\SeederData\Race.json");
 
             var toAdd = JsonConvert.DeserializeObject<List<Race>>(jsonString);
 

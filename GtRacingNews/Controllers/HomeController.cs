@@ -18,17 +18,17 @@ namespace GtRacingNews.Controllers
 
         public async Task<IActionResult> Seed()
         {
-            //await this.engine.SqlSeeder.SeedUser();
-            //await this.engine.SqlSeeder.SeedRoles();
-            //await this.engine.SqlSeeder.SeedUserRoles();
+            await this.engine.SqlSeeder.SeedUser();
+            await this.engine.SqlSeeder.SeedRoles();
+            await this.engine.SqlSeeder.SeedUserRoles();
 
-            //await this.engine.SqlSeeder.SeedChampionship();
-            //await this.engine.SqlSeeder.SeedTeams();
-            //await this.engine.SqlSeeder.SeedDriver();
-            //await this.engine.SqlSeeder.SeedNews();
-            //await this.engine.SqlSeeder.SeedComments();
-            //await this.engine.SqlSeeder.SeedRaces();
-            //await this.engine.SqlSeeder.SeedProfiles();
+            await this.engine.SqlSeeder.SeedChampionship();
+            await this.engine.SqlSeeder.SeedTeams();
+            await this.engine.SqlSeeder.SeedDriver();
+            await this.engine.SqlSeeder.SeedNews();
+            await this.engine.SqlSeeder.SeedComments();
+            await this.engine.SqlSeeder.SeedRaces();
+            await this.engine.SqlSeeder.SeedProfiles();
 
             return Redirect("/");
         }

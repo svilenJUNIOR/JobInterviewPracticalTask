@@ -6,10 +6,11 @@ namespace GtRacingNews.Data.DataModels.SqlModels
 {
     public class Race
     {
-        public Race(string Name, string Date)
+        public Race(string Name, string Date, string championshipId)
         {
             this.Name = Name;
             this.Date = Date;
+            this.ChampionshipId = championshipId;
         }
         [Key]
         [BsonId]
@@ -21,6 +22,6 @@ namespace GtRacingNews.Data.DataModels.SqlModels
         public string Name { get; set; }
         public string Date { get; set; }
         public string? UserId { get; set; }
-
+        public string?  ChampionshipId { get; set; }
     }
 }

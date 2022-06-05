@@ -15,7 +15,7 @@ namespace GtRacingNews.Services.Service
         public IBindService bindService { get; set; }
         public IDeleteService deleteService { get; set; }
         public IReturnAll returnAll { get; set; }
-        public ISqlSeeder seeder { get; set; }
+        public ISqlSeeder SqlSeeder { get; set; }
         public IValidator validator { get; set; }
         public ISqlRepository sqlRepository { get; set; }
         public IProfileService profileService { get; set; }
@@ -27,7 +27,7 @@ namespace GtRacingNews.Services.Service
                 IBindService bindService,
                 IDeleteService deleteService,
                 IReturnAll returnAll,
-                ISqlSeeder seeder,
+                ISqlSeeder SqlSeeder,
                 IValidator validator,
                 ISqlRepository sqlRepository,
                 IProfileService profileService,
@@ -38,7 +38,7 @@ namespace GtRacingNews.Services.Service
             this.bindService = bindService;
             this.deleteService = deleteService;
             this.returnAll = returnAll;
-            this.seeder = seeder;
+            this.SqlSeeder = SqlSeeder;
             this.validator = validator;
             this.sqlRepository = sqlRepository;
             this.profileService = profileService;
@@ -76,7 +76,7 @@ namespace GtRacingNews.Services.Service
 
             var errors = CollectErrors(dataErrors, nullErrors, modelState);
 
-            if (errors.Count() == 0) await addService.AddNewRace(model.Name, model.Date, isModerator, userId);
+            if (errors.Count() == 0) await addService.AddNewRace(model.Name, model.Date, model.ChampionshipName, isModerator, userId);
 
             return errors;
         }
