@@ -69,17 +69,11 @@ namespace GtRacingNews.Services.Service
 
             for (int i = 0; i < bindedRaces.Count(); i++)
             {
-                string[] date = bindedRaces[i].Date.Split('/').ToArray();
-
-                var day = int.Parse(date[0]);
-                var month = int.Parse(date[1]);
-                var year = int.Parse(date[2]);
-
-                if (year < DateTime.Now.Year) bindedRaces[i].HasFinishied = true;
-                else if (year >= DateTime.Now.Year && month < DateTime.Now.Month) bindedRaces[i].HasFinishied = true;
-                else if (year >= DateTime.Now.Year && month >= DateTime.Now.Month && day < DateTime.Now.Day) bindedRaces[i].HasFinishied = true;
+                DateTime date = DateTime.Parse(bindedRaces[i].Date);
+                if (date < DateTime.Now) bindedRaces[i].HasFinishied = true;
             }
 
+            bindedRaces = bindedRaces.OrderBy(x => DateTime.Parse(x.Date)).ToList();
             return bindedRaces;
         }
 
