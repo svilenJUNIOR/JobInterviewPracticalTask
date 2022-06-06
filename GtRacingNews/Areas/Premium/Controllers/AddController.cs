@@ -47,7 +47,15 @@ namespace GtRacingNews.Areas.Premium.Controllers
         public IActionResult AddRole() => View();
 
         [Authorize(Roles = "Moderator, Admin")]
-        public async Task<IActionResult> AddRace() => View();
+        public async Task<IActionResult> AddRace()
+        {
+            var championships = this.engine.sqlRepository.GettAll<Championship>();
+            AddNewRaceFormModel model = new AddNewRaceFormModel();
+
+            model.Championships = championships;
+
+            return View(model);
+        }
 
         [Authorize(Roles = "Moderator, Admin")]
         public async Task<IActionResult> AddDriver()

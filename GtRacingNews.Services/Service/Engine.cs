@@ -6,6 +6,7 @@ using GtRacingNews.ViewModels.News;
 using GtRacingNews.ViewModels.Race;
 using GtRacingNews.ViewModels.Team;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.Text.RegularExpressions;
 
 namespace GtRacingNews.Services.Service
 {
@@ -75,6 +76,9 @@ namespace GtRacingNews.Services.Service
             var dataErrors = validator.ValidateObject("Race", model.Name, modelState);
 
             var errors = CollectErrors(dataErrors, nullErrors, modelState);
+            bool isValid = Regex.IsMatch(model.Date, "([0-9]+(/[0-9]+)+)");
+
+            if (!isValid) errors.Add("Invalid date format!");
 
             if (errors.Count() == 0) await addService.AddNewRace(model.Name, model.Date, model.ChampionshipName, isModerator, userId);
 
